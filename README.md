@@ -45,7 +45,7 @@ This difference is expected — Claude Desktop is using *your* custom weather ba
 ### 📸 Example Comparison
 
 <p align="center">
-  <img src="Claude_Desktop_vs_Claude_Online.png" width="700" />
+  <img src="Claude_Desktop_vs_Claude_Online.png" width="1400" />
 </p>
 
 <p align="center"><i>Claude Desktop (MCP) vs Claude Online — different data sources, different results</i></p>
@@ -215,6 +215,12 @@ You should now see a 🔨 hammer icon in the chat input — this confirms your M
 
 > **⚠️ Why this matters:** If Claude Desktop is still running in the background (even minimized or in the system tray), it won't pick up changes to `claude_desktop_config.json`. Force-quitting via PowerShell ensures all Claude processes are fully terminated before restarting.
 
+**4. Activate MCP server in Claude Desktop.**
+
+<p align="center">
+  <img src="Activating_weather_MCP_server_in_Claude_Desktop.png" width="800" />
+</p>
+
 ---
 
 ## 🧪 Testing the Server Manually
@@ -315,6 +321,38 @@ To remove a package:
 ```powershell
 uv remove package-name
 ```
+
+---
+
+## 📝 Example Prompts in Claude Desktop
+
+<p align="center">
+  <img src="Toronto_Canada_Use_MCP_Tool_Only.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="Toronto_Canada_Use_Any_Tool.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="Toronto_Canada_Use_Any_Tool_Except_MCP.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="Saskatoon_Canada_Use_MCP_Tool_Only.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="Saskatoon_Canada_Use_Any_Tool.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="New_York_USA_Use_MCP_Tool_Only.png" width="700" />
+</p>
+
+<p align="center">
+  <img src="New_York_USA_Use_Any_Tool.png" width="700" />
+</p>
 
 ---
 
