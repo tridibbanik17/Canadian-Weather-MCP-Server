@@ -25,8 +25,8 @@ Before you begin, make sure you have the following installed on your Windows mac
 Open **PowerShell** and run:
 
 ```powershell
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/tridibbanik17/Canadian-Weather-MCP-Server
+cd .\Canadian-Weather-MCP-Server
 ```
 
 ### Step 2 — Install `uv` (if not already installed)
