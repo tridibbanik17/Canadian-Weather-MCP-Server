@@ -131,9 +131,23 @@ Paste the following into the config file (replace the path with your actual proj
 
 > **💡 How to find your full path:** In PowerShell, navigate to your project folder and run `pwd`. Copy the output and replace each `\` with `\\` in the JSON.
 
-### Step 3 — Restart Claude Desktop
+### Step 3 — Fully Quit Claude and Restart
 
-Fully close Claude Desktop (check the system tray), then reopen it. You should see a 🔨 hammer icon in the chat input — this confirms your MCP server is connected.
+This step is critical. Simply closing the Claude Desktop window is not enough — Claude must be completely stopped for the new MCP configuration to load.
+
+**1. Log out of Claude Online** (claude.ai) in your browser.
+
+**2. Force quit Claude Desktop** via PowerShell:
+
+```powershell
+Stop-Process -Name "claude" -Force -ErrorAction SilentlyContinue
+```
+
+**3. Reopen Claude Desktop.**
+
+You should now see a 🔨 hammer icon in the chat input — this confirms your MCP server is connected.
+
+> **⚠️ Why this matters:** If Claude Desktop is still running in the background (even minimized or in the system tray), it won't pick up changes to `claude_desktop_config.json`. Force-quitting via PowerShell ensures all Claude processes are fully terminated before restarting.
 
 ---
 
@@ -185,10 +199,17 @@ Then try activating again.
 
 ---
 
-### ❌ Claude Desktop doesn't show the hammer 🔨 icon
+### ❌ Claude Desktop doesn't show the hammer 🔨 icon after configuration
+The most reliable fix is to fully terminate all Claude processes and restart:
+
+```powershell
+Stop-Process -Name "claude" -Force -ErrorAction SilentlyContinue
+```
+
+Then also:
+- Log out of Claude Online (claude.ai) in your browser before reopening Claude Desktop.
 - Double-check the path in `claude_desktop_config.json` is correct and uses `\\` (double backslashes).
 - Make sure there are no trailing commas or syntax errors in the JSON file.
-- Fully quit Claude Desktop from the system tray (bottom-right), then reopen it.
 - Check Claude Desktop logs at: `%APPDATA%\Claude\logs\`
 
 ---
