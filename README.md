@@ -1,6 +1,23 @@
-# 🌤️ Weather MCP Server
+# 🌤️ Canadian Weather MCP Server
 
-A Model Context Protocol (MCP) server that provides real-time Canadian weather data and alerts — built with Python and designed to integrate with Claude Desktop.
+A Model Context Protocol (MCP) server that provides real-time Canadian weather forecasts and Environment Canada alerts — built with Python and [uv](https://docs.astral.sh/uv/), designed to integrate with Claude Desktop.
+
+---
+
+## 🗺️ Supported Cities
+
+| City | Province |
+|------|----------|
+| Hamilton | Ontario |
+| Toronto | Ontario |
+| Ottawa | Ontario |
+| Québec City | Quebec |
+| Montréal | Quebec |
+| Winnipeg | Manitoba |
+| Calgary | Alberta |
+| Edmonton | Alberta |
+| Vancouver | British Columbia |
+| Halifax | Nova Scotia |
 
 ---
 
@@ -10,7 +27,7 @@ Before you begin, make sure you have the following installed on your Windows mac
 
 | Tool | Version | Download |
 |------|---------|----------|
-| Python | 3.10+ | https://www.python.org/downloads/ |
+| Python | 3.13+ | https://www.python.org/downloads/ |
 | `uv` (package manager) | Latest | https://docs.astral.sh/uv/getting-started/installation/ |
 | Claude Desktop | Latest | https://claude.ai/download |
 
@@ -25,11 +42,13 @@ Before you begin, make sure you have the following installed on your Windows mac
 Open **PowerShell** and run:
 
 ```powershell
-git clone https://github.com/tridibbanik17/Canadian-Weather-MCP-Server
-cd .\Canadian-Weather-MCP-Server
+git clone https://github.com/tridibbanik17/Canadian-Weather-MCP-Server.git
+cd Canadian-Weather-MCP-Server
 ```
 
 ### Step 2 — Install `uv` (if not already installed)
+
+`uv` is a fast, all-in-one Python package and project manager (replaces `pip`, `venv`, and `pyenv`).
 
 ```powershell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -86,7 +105,7 @@ In PowerShell, open the config file with Notepad:
 notepad "$env:APPDATA\Claude\claude_desktop_config.json"
 ```
 
-> If the file doesn't exist yet, Claude Desktop will create it when you first run it. Open Claude Desktop once, then close it, and try again.
+> If the file doesn't exist yet, open Claude Desktop once, close it, and try again.
 
 ### Step 2 — Add your MCP server
 
@@ -103,14 +122,14 @@ Paste the following into the config file (replace the path with your actual proj
         "mcp[cli]",
         "mcp",
         "run",
-        "C:\\Users\\OWNER\\Downloads\\weather\\weather.py"
+        "C:\\Users\\OWNER\\Downloads\\Canadian-Weather-MCP-Server\\weather.py"
       ]
     }
   }
 }
 ```
 
-> **💡 How to find your full path:** In PowerShell, navigate to your project folder and run `pwd`. Copy the output and replace the backslashes `\` with double backslashes `\\` in the JSON.
+> **💡 How to find your full path:** In PowerShell, navigate to your project folder and run `pwd`. Copy the output and replace each `\` with `\\` in the JSON.
 
 ### Step 3 — Restart Claude Desktop
 
@@ -137,10 +156,10 @@ If it starts without errors, the server is working correctly. Press `Ctrl+C` to 
 ## 🗂️ Project Structure
 
 ```
-weather/
+Canadian-Weather-MCP-Server/
 ├── .venv/               # Virtual environment (NOT committed to Git)
 ├── .gitignore           # Git ignore rules
-├── .python-version      # Pinned Python version for uv
+├── .python-version      # Pinned Python version (3.13)
 ├── main.py              # Entry point
 ├── pyproject.toml       # Project metadata and dependencies
 ├── uv.lock              # Locked dependency versions
@@ -193,14 +212,19 @@ uv sync
 
 ## 📦 Dependencies
 
-Dependencies are managed by `uv` and defined in `pyproject.toml`. To add a new package:
+Dependencies are managed by `uv` and defined in `pyproject.toml`.
 
+| Package | Purpose |
+|---------|---------|
+| `httpx` | HTTP client for fetching weather data |
+| `mcp[cli]` | Model Context Protocol framework |
+
+To add a new package:
 ```powershell
 uv add package-name
 ```
 
 To remove a package:
-
 ```powershell
 uv remove package-name
 ```
