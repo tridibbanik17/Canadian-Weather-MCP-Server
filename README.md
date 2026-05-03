@@ -1,5 +1,10 @@
 # 🌤️ Canadian Weather MCP Server
 
+<p align="center">
+  <img src="How_MCP_Server_Works.svg" width="700" />
+</p>
+
+
 A Model Context Protocol (MCP) server that provides real-time Canadian weather forecasts and Environment Canada alerts — built with Python and [uv](https://docs.astral.sh/uv/), designed to integrate with Claude Desktop.
 
 ---
