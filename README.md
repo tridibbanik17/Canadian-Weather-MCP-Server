@@ -26,6 +26,67 @@ A Model Context Protocol (MCP) server that provides real-time Canadian weather f
 
 ---
 
+## 🌐 Claude Online vs 🖥️ Claude Desktop (MCP Server Behavior)
+
+Claude Online and Claude Desktop behave differently when you ask for weather data — and this is intentional.
+
+### **Claude Online**
+- Has access to the full internet  
+- Can fetch weather for *any* city worldwide  
+- Example: Asking for **Saskatoon** returns a full forecast instantly  
+
+### **Claude Desktop with MCP Server**
+- Uses **your local MCP server** instead of the internet  
+- Only knows the **10 hardcoded cities** inside `weather.py`  
+- So when you ask for **Saskatoon**, the MCP server returns: City 'saskatoon' not found
+
+This difference is expected — Claude Desktop is using *your* custom weather backend, not the global online model.
+
+### 📸 Example Comparison
+
+<p align="center">
+  <img src="Claude_Desktop_vs_Claude_Online.png" width="700" />
+</p>
+
+<p align="center"><i>Claude Desktop (MCP) vs Claude Online — different data sources, different results</i></p>
+
+---
+
+## 🔒 Why MCP Servers Matter (Real Use Case)
+
+The weather server is a simple learning project — but the *real* power of MCP comes from connecting Claude to data it normally cannot access.
+
+Claude Online **cannot** read or interact with:
+
+- Your company’s private databases (behind firewalls)  
+- Files stored on your local machine  
+- Internal tools like Jira, Linear, or custom APIs  
+- Proprietary research documents  
+- Secure on‑prem systems  
+- Local knowledge bases (Obsidian, Notion, etc.)
+
+But **Claude Desktop + MCP** *can*.
+
+### 🧠 What MCP Enables
+
+With a custom MCP server, Claude Desktop can:
+
+- Read thousands of local files  
+- Query private SQL databases  
+- Analyze internal documents  
+- Automate workflows inside your company  
+- Interact with secure APIs  
+- Process data that must never leave your machine  
+
+This is the real value of MCP:  
+**You bring your private data to Claude — without exposing it to the cloud.**
+
+### 📘 Example Use Case Diagram
+
+<p align="center">
+  <img src="MCP_Server_Use_Case.png" width="700" />
+</p>
+
 ## 📋 Prerequisites
 
 Before you begin, make sure you have the following installed on your Windows machine:
