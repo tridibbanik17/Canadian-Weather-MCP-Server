@@ -9,6 +9,16 @@ A Model Context Protocol (MCP) server that provides real-time Canadian weather f
 
 ---
 
+## 🎥 Video Demonstration
+
+Watch a full walkthrough of the Canadian Weather MCP Server in action:
+
+[![Watch the Demo](https://img.youtube.com/vi/9_x4dUKaLDA/0.jpg)](https://www.youtube.com/watch?v=9_x4dUKaLDA)
+
+> Click the thumbnail to watch the demo on YouTube.
+
+---
+
 ## 🗺️ Supported Cities
 
 | City | Province |
